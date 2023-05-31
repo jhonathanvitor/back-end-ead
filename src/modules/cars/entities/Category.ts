@@ -1,7 +1,9 @@
-import { v4 as uuidV4 } from 'uuid';
+import { v4 as uuidV4 } from "uuid";
+import { Entity } from "typeorm";
 
+@Entity("categories")
 class Category {
-    id?: string; 
+    id?: string;
     name: string;
     description: string;
     created_at: Date;

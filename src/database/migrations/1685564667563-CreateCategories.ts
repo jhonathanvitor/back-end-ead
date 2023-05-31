@@ -8,16 +8,19 @@ export class CreateCategories1685564667563 implements MigrationInterface {
                 columns: [
                     {
                         name: "id",
-                        type: "uuid",
+                        type: "varchar",
                         isPrimary: true,
+                        generationStrategy: "uuid",
                     },
                     {
                         name: "name",
                         type: "varchar",
+                        isNullable: false,
                     },
                     {
                         name: "description",
                         type: "varchar",
+                        isNullable: false,
                     },
                     {
                         name: "created_at",
