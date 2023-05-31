@@ -1,7 +1,12 @@
 {
-    "type": "postgres",
+    "type": "mysql",
+    "driver": {},
     "host": "localhost",
-    "username": "",
-    "password": "",
-    "database": "backendead"
+    "port": 3306,
+    "username": "root",
+    "password": "root",
+    "database": "backendead",
+    "cli": {
+        "migrationsDir": "./src/database/migrations"
+    }
 }

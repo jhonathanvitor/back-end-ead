@@ -3,15 +3,20 @@ import swaggerUi from "swagger-ui-express";
 
 import { router } from "./routes";
 import swaggerFile from "./swagger.json";
+import { AppDataSource } from "./database/data-souce";
 
-import "./database";
+// import "./database";
 
 const app = express();
 
 app.use(express.json());
 
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile));
+AppDataSource.initialize().then(async () => {
+    console.log("Database initialized");
 
-app.use(router);
+    app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
-app.listen(3333, () => console.log("🚀 Server is running!"));
+    app.use(router);
+
+    app.listen(3333, () => console.log("🚀 Server is running!"));
+});

@@ -4,11 +4,21 @@ import {
     ISpecificationsRepository,
 } from "../ISpecificationsRepository";
 
-class SpecificationRepository implements ISpecificationsRepository {
+class SpecificationsRepository implements ISpecificationsRepository {
     private specifications: Specification[];
+
+    private static INSTANCE: SpecificationsRepository;
 
     constructor() {
         this.specifications = [];
+    }
+
+    public static getInstance(): SpecificationsRepository {
+        if (!SpecificationsRepository.INSTANCE) {
+            SpecificationsRepository.INSTANCE = new SpecificationsRepository();
+        }
+
+        return SpecificationsRepository.INSTANCE;
     }
 
     create({ name, description }: ICreateSpecificationDTO): void {
@@ -27,12 +37,12 @@ class SpecificationRepository implements ISpecificationsRepository {
         return this.specifications;
     }
 
-    findByName(name: String): ISpecificationsRepository {
-        const specifications = this.specifications.find(
-            (specifications) => specifications.name === name
+    findByName(name: string): Specification {
+        const specification = this.specifications.find(
+            (specification) => specification.name === name
         );
-        return specifications;
+        return specification;
     }
 }
 
-export { SpecificationRepository };
+export { SpecificationsRepository };
