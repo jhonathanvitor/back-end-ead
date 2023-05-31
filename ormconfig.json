@@ -1,12 +1,8 @@
 {
-    "type": "mysql",
-    "driver": {},
-    "host": "localhost",
-    "port": 3306,
-    "username": "root",
-    "password": "root",
-    "database": "backendead",
-    "cli": {
-        "migrationsDir": "./src/database/migrations"
-    }
+    "type": "TYPEORM_CONNECTION",
+    "host": "TYPEORM_HOST",
+    "port": "TYPEORM_PORT",
+    "username": "TYPEORM_USERNAME",
+    "password": "TYPEORM_PASSWORD",
+    "database": "TYPEORM_DATABASE"
 }

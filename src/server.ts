@@ -3,7 +3,7 @@ import swaggerUi from "swagger-ui-express";
 
 import { router } from "./routes";
 import swaggerFile from "./swagger.json";
-import { AppDataSource } from "./database/data-souce";
+import { AppDataSource } from "./database/data-source";
 
 // import "./database";
 
